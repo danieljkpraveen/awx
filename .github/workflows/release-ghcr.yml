@@ -11,6 +11,7 @@ permissions:
 
 env:
   LC_ALL: 'C.UTF-8'
+  NODE_OPTIONS: '--max-old-space-size=4096'
 
 jobs:
   release-awx:
