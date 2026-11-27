@@ -89,8 +89,8 @@ $(UI_DIR)/src/node_modules/webpack:
 	@echo "=== Installing UI dependencies (npm ci) ==="
 	@cd $(UI_DIR)/src && \
 	  maj=$$(node -p "process.versions.node.split('.')[0]"); \
-	  if [ "$$maj" != "18" ]; then \
-	    echo "Error: Need Node 18.x; found $$(node -v)" >&2; \
+	  if [ "$$maj" -lt 20 ]; then \
+	    echo "Error: Need Node 20+; found $$(node -v)" >&2; \
 	    exit 1; \
 	  fi; \
 	  npm ci --no-audit --no-fund

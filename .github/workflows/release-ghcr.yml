@@ -51,10 +51,10 @@ jobs:
             pip install --no-cache-dir ansible-core
           fi
 
-      - name: Set up Node 18 for UI build
+      - name: Set up Node 20 for UI build
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Prebuild AWX UI from pinned fork tag
         run: make ui UI_GIT_BRANCH="${RELEASE_VERSION}"
