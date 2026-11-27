@@ -7,7 +7,7 @@ UI_LOCAL ?=
 
 ## Git repo and branch to the UI repo
 UI_GIT_REPO ?= https://github.com/danieljkpraveen/ansible-ui.git
-UI_GIT_BRANCH ?= 2026.11.0
+UI_GIT_BRANCH ?= 2026.11.1
 
 ## Product name to display on the UI used in UI build process
 PRODUCT ?= AWX

@@ -70,6 +70,8 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: |
             ghcr.io/${{ env.OWNER_LOWER }}/awx:${{ env.RELEASE_VERSION }}
             ghcr.io/${{ env.OWNER_LOWER }}/awx:latest
