@@ -17,8 +17,8 @@
 # updater.sh uses these lines to comment out matching entries in requirements.txt
 # so they are not installed twice (once from git, once from PyPI).
 #
-certifi @ git+https://github.com/ansible/system-certifi.git@devel
-ansible-runner @ git+https://github.com/ansible/ansible-runner.git@devel
-awx-plugins-core[credentials-github-app] @ git+https://github.com/ansible/awx-plugins.git@devel
-django-ansible-base[feature-flags,jwt-consumer,rbac,resource-registry,rest-filters] @ git+https://github.com/ansible/django-ansible-base@devel
-awx-plugins-interfaces @ git+https://github.com/ansible/awx_plugins.interfaces.git
+certifi @ git+https://github.com/ansible/system-certifi.git@5aa52ab91f9d579bfe52b5acf30ca799f1a563d9
+ansible-runner @ git+https://github.com/ansible/ansible-runner.git@db7e91da79f5f812592e04f09c78fb6540debf83
+awx-plugins-core[credentials-github-app] @ git+https://github.com/ansible/awx-plugins.git@c73d0ab8b40436183dac266040398dd1e93f59f1
+django-ansible-base[feature-flags,jwt-consumer,rbac,resource-registry,rest-filters] @ git+https://github.com/ansible/django-ansible-base@df413ee07d41b209a75a2404261f4fe679a4e2e7
+awx-plugins-interfaces @ git+https://github.com/ansible/awx_plugins.interfaces.git@d501c586defae4519a3150d6e0d1cf84df70636e

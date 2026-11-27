@@ -6,8 +6,8 @@ UI_DIR := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 UI_LOCAL ?=
 
 ## Git repo and branch to the UI repo
-UI_GIT_REPO ?= https://github.com/ansible/ansible-ui.git
-UI_GIT_BRANCH ?= main
+UI_GIT_REPO ?= https://github.com/danieljkpraveen/ansible-ui.git
+UI_GIT_BRANCH ?= 2026.11.0
 
 ## Product name to display on the UI used in UI build process
 PRODUCT ?= AWX
@@ -69,11 +69,11 @@ $(UI_DIR)/src:
 			else \
 				echo "=== Cloning $(UI_DIR)/src from $(UI_GIT_BRANCH) of $(UI_GIT_REPO) ==="; \
 				rm -rf $(UI_DIR)/src; \
-				git clone --depth 1 --branch $(UI_GIT_BRANCH) $(UI_GIT_REPO) $(UI_DIR)/src || true; \
+				git clone --depth 1 --branch $(UI_GIT_BRANCH) $(UI_GIT_REPO) $(UI_DIR)/src; \
 			fi; \
 		else \
 			echo "=== Cloning $(UI_DIR)/src from $(UI_GIT_BRANCH) of $(UI_GIT_REPO) ==="; \
-			git clone --depth 1 --branch $(UI_GIT_BRANCH) $(UI_GIT_REPO) $(UI_DIR)/src || true; \
+			git clone --depth 1 --branch $(UI_GIT_BRANCH) $(UI_GIT_REPO) $(UI_DIR)/src; \
 		fi; \
 	else \
 		echo "FAILED: ui/src. UI_LOCAL and UI_GIT_REPO are not set."; \
@@ -86,14 +86,14 @@ ui/src/webpack: $(UI_DIR)/src/node_modules/webpack
 
 ## True target for ui/src/webpack.
 $(UI_DIR)/src/node_modules/webpack:
-	@echo "=== Installing webpack ==="
+	@echo "=== Installing UI dependencies (npm ci) ==="
 	@cd $(UI_DIR)/src && \
 	  maj=$$(node -p "process.versions.node.split('.')[0]"); \
 	  if [ "$$maj" != "18" ]; then \
 	    echo "Error: Need Node 18.x; found $$(node -v)" >&2; \
 	    exit 1; \
 	  fi; \
-	  npm install webpack
+	  npm ci --no-audit --no-fund
 
 
 .PHONY: clean/ui
